@@ -57,7 +57,8 @@
 ;;   (remove-hook 'pre-command-hook #'eldoc-pre-command-refresh-echo-area))
 
 ;;; which-key expt
-(setq which-key-idle-delay 10000)
+;;(setq which-key-idle-delay 10000)
+(setq which-key-idle-delay 1.0)
 (setq which-key-idle-secondary-delay 0.05)
 
 ;; (setq load-file-rep-suffixes '("" ".gz"))
