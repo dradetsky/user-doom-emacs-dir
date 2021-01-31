@@ -18,7 +18,8 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+;; (setq display-line-numbers-type t)
+(setq display-line-numbers-type nil)
 
 (global-set-key (kbd "C-;") 'ace-window)
 (after! ace-window
@@ -40,6 +41,26 @@
 
 ;; dumb parens
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
+
+(after! newcomment
+  (setq comment-empty-lines t))
+
+(after! org
+  (setq org-startup-indented nil)
+  (setq org-list-demote-modify-bullet nil)
+  (setq org-hide-leading-stars nil))
+
+(add-hook! 'eldoc-mode-hook
+  (remove-hook 'pre-command-hook 'eldoc-pre-command-refresh-echo-area 'local))
+;; (after! eldoc
+;;   (remove-hook 'pre-command-hook #'eldoc-pre-command-refresh-echo-area))
+
+;;; which-key expt
+(setq which-key-idle-delay 10000)
+(setq which-key-idle-secondary-delay 0.05)
+
+;; (setq load-file-rep-suffixes '("" ".gz"))
+;; (auto-compression-mode 1)
 
 (defun dmr:comment-header-info ()
   (interactive)
