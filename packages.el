@@ -28,6 +28,8 @@
 (package! tide :disable t)
 (package! lsp :disable t)
 (package! winner :disable t)
+(package! org-agenda :disable t)
+(package! org-capture :disable t)
 
 ;; You can override the recipe of a built in package without having to specify
 ;; all the properties for `:recipe'. These will inherit the rest of its recipe
