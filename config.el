@@ -27,13 +27,18 @@
       (font-spec :family "Gohu GohuFont" :size 14))
 
 (setq doom-theme 'doom-one)
+(custom-theme-set-faces! 'doom-one
+  '(default
+     ;:background "#01242b"
+     :background "#01141b"
+     :foreground "#dbd2df"))
 
 (setq org-directory "~/code/elisp/org-dir/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-;; (setq display-line-numbers-type t)
-(setq display-line-numbers-type nil)
+(setq display-line-numbers-type t)
+;; (setq display-line-numbers-type nil)
 
 (global-set-key (kbd "C-;") 'ace-window)
 (after! ace-window
