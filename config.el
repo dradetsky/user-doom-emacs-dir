@@ -10,7 +10,18 @@
 ;; + `doom-variable-pitch-font'
 ;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-;(setq doom-font (font-spec :family "gohufont" :size 14))
+;;
+;; broken by switch to native
+;;
+;;(setq doom-font (font-spec :family "gohufont" :size 14))
+;;
+;; too small
+;;
+;;(setq doom-font "Cozette:style=Medium")
+;;
+;; bold caps unreadable
+;;
+;;(setq doom-font "Spleen:style=Regular")
 (setq doom-font "Gohu GohuFont:pixelsize=14")
 
 (setq doom-theme 'doom-one)
