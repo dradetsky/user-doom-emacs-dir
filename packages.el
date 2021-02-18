@@ -8,8 +8,8 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
-(package! pkgbuild-mode)
-(package! lua-mode)
+(package! pkgbuild-mode :pin "8a5e95c851...")
+(package! lua-mode :pin "2d9a468b94acd848")
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
