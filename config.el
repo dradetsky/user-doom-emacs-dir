@@ -22,9 +22,11 @@
 ;; bold caps unreadable
 ;;
 ;;(setq doom-font "Spleen:style=Regular")
-;(setq doom-font "Gohu GohuFont:pixelsize=14")
-(setq doom-font
-      (font-spec :family "Gohu GohuFont" :size 14))
+(setq doom-font "Gohu GohuFont:pixelsize=14")
+;; (setq doom-font
+;;       (font-spec :family "Gohu GohuFont" :size 14))
+;;       (font-spec :family "gohufont" :size 14))
+;;       "Gohu GohuFont:pixelsize=14")
 
 (setq doom-theme 'doom-one)
 (custom-theme-set-faces! 'doom-one
