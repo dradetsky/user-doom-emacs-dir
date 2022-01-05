@@ -3,6 +3,12 @@
 (setq user-full-name "dmr"
       user-mail-address "dmr@dmr.com")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; FONT FIX
+;;
+;; sudo fc-cache --force
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
