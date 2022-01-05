@@ -116,4 +116,5 @@
 
 (map! :leader
       (:prefix ("p" . "project")
+       :desc "toggle project r/o" "E" #'projectile-toggle-project-read-only
        :desc "yank project file name" "y" #'dmr:yank-proj-rel-buffer-filename))
