@@ -11,6 +11,8 @@
 (package! pkgbuild-mode :pin "8a5e95c851...")
 (package! lua-mode :pin "2d9a468b94acd848")
 
+;; (package! systemd-mode :pin "b6ae63a...")
+
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
@@ -55,3 +57,5 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+(package! vline :pin "f5d7b5743dceca75b81c8c95287cd5b0341debf9")
