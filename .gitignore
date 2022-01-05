@@ -1,3 +1,7 @@
+# actually ignore
+custom.el
+
+# random shit
 new
 old
 prev.init.el
