@@ -104,3 +104,16 @@
 (defun dmr:insert-current-date ()
   (interactive)
   (insert (shell-command-to-string "echo -n $(date +%F)")))
+
+(defun dmr:yank-proj-rel-buffer-filename ()
+  (interactive)
+  (if (projectile-project-root)
+      (if-let (filename (or buffer-file-name (bound-and-true-p list-buffers-directory)))
+          (let ((relname (substring filename (length (projectile-project-root)))))
+            (message (kill-new relname)))
+        (error "Couldn't find filename in current buffer"))
+    (error "Not in project")))
+
+(map! :leader
+      (:prefix ("p" . "project")
+       :desc "yank project file name" "y" #'dmr:yank-proj-rel-buffer-filename))
