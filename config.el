@@ -118,3 +118,15 @@
       (:prefix ("p" . "project")
        :desc "toggle project r/o" "E" #'projectile-toggle-project-read-only
        :desc "yank project file name" "y" #'dmr:yank-proj-rel-buffer-filename))
+
+(defun dmr:string-length< (str0 str1)
+  (let ((len0 (length str0))
+        (len1 (length str1)))
+    (< len0 len1)))
+
+(after! ivy
+  ;; this one doesn't appear to work for SPC-f-f
+  (add-to-list 'ivy-sort-functions-alist
+               '(counsel-find-file . dmr:string-length<))
+  (add-to-list 'ivy-sort-functions-alist
+               '(counsel-projectile-find-file . dmr:string-length<)))
