@@ -130,3 +130,10 @@
                '(counsel-find-file . dmr:string-length<))
   (add-to-list 'ivy-sort-functions-alist
                '(counsel-projectile-find-file . dmr:string-length<)))
+
+(after! evil
+  (undefine-key! evil-normal-state-map
+    ;; #'text-scale-increase
+    "C-="
+    ;; #'text-scale-decrease
+    "C--"))
