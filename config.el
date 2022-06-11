@@ -137,3 +137,9 @@
     "C-="
     ;; #'text-scale-decrease
     "C--"))
+
+(defun undo-pin-truncation ()
+  (let ((keyword '("(package!\\_>" (0 (+emacs-lisp-truncate-pin)))))
+    (font-lock-remove-keywords nil (list keyword))))
+(add-hook! 'emacs-lisp-mode-hook #'undo-pin-truncation)
+(add-hook! 'elisp-mode-hook #'undo-pin-truncation)
