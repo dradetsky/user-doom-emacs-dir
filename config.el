@@ -125,6 +125,10 @@
     (< len0 len1)))
 
 (after! ivy
+  (add-to-list 'ivy-sort-functions-alist
+               '(+ivy/switch-to-buffer . dmr:string-length<))
+  (add-to-list 'ivy-sort-functions-alist
+               '(counsel-projectile-switch-project . dmr:string-length<))
   ;; this one doesn't appear to work for SPC-f-f
   (add-to-list 'ivy-sort-functions-alist
                '(counsel-find-file . dmr:string-length<))
@@ -143,3 +147,6 @@
     (font-lock-remove-keywords nil (list keyword))))
 (add-hook! 'emacs-lisp-mode-hook #'undo-pin-truncation)
 (add-hook! 'elisp-mode-hook #'undo-pin-truncation)
+
+(add-to-list 'auto-mode-alist
+             '("/tmp/neomutt-" . mail-mode))
