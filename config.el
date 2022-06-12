@@ -86,6 +86,10 @@
   (setq org-list-demote-modify-bullet nil)
   (setq org-hide-leading-stars nil))
 
+(after! evil-markdown
+  (map! :map evil-markdown-mode-map
+        :i "M-b" #'backward-word))
+
 (add-hook! 'eldoc-mode-hook
   (remove-hook 'pre-command-hook 'eldoc-pre-command-refresh-echo-area 'local))
 ;; (after! eldoc
