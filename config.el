@@ -40,12 +40,15 @@
 ;;       (font-spec :family "gohufont" :size 14))
 ;;       "Gohu GohuFont:pixelsize=14")
 
+;; NOTE: wanted to do some fine-tuning, like below, but this messed up colors in
+;; terminal somehow
+;;
+;; (custom-theme-set-faces! 'doom-one
+;;   '(default
+;;      ;:background "#01242b"
+;;      :background "#01141b"
+;;      :foreground "#dbd2df"))
 (setq doom-theme 'doom-one)
-(custom-theme-set-faces! 'doom-one
-  '(default
-     ;:background "#01242b"
-     :background "#01141b"
-     :foreground "#dbd2df"))
 
 (setq org-directory "~/code/elisp/org-dir/")
 
