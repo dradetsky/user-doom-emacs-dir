@@ -109,6 +109,7 @@
        yaml              ; JSON, but readable
 
        :email
+       mutt
        :app
        :config
        (default +bindings))

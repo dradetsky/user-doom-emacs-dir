@@ -147,6 +147,3 @@
     (font-lock-remove-keywords nil (list keyword))))
 (add-hook! 'emacs-lisp-mode-hook #'undo-pin-truncation)
 (add-hook! 'elisp-mode-hook #'undo-pin-truncation)
-
-(add-to-list 'auto-mode-alist
-             '("/tmp/neomutt-" . mail-mode))
