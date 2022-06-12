@@ -78,6 +78,9 @@
 ;; dumb parens
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
+;; for xterms; means "not-flashing cursor"
+(setq visible-cursor nil)
+
 (after! newcomment
   (setq comment-empty-lines t))
 
