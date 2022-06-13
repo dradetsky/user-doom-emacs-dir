@@ -157,3 +157,10 @@
     (font-lock-remove-keywords nil (list keyword))))
 (add-hook! 'emacs-lisp-mode-hook #'undo-pin-truncation)
 (add-hook! 'elisp-mode-hook #'undo-pin-truncation)
+
+;; XXX: i'm not sure i defined the fn correctly in autoloads
+;;
+(global-set-key [remap doom/delete-frame-with-prompt]
+                #'dmr/delete-frame-with-prompt-if-last)
+(global-set-key [remap delete-frame]
+                #'dmr/delete-frame-with-prompt-if-last)
