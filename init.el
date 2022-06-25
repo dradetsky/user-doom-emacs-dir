@@ -89,6 +89,9 @@
        ;;upload            ; map local to remote projects via ssh/ftp
        vimrc
 
+       :os
+       linux-dmr
+
        :lang
        clojure
        emacs-lisp        ; drown in parentheses

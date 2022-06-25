@@ -8,7 +8,6 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
-(package! pkgbuild-mode :pin "8a5e95c851...")
 (package! lua-mode :pin "2d9a468b94acd848")
 
 ;; (package! systemd-mode :pin "b6ae63a...")
