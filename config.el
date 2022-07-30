@@ -164,3 +164,8 @@
                 #'dmr/delete-frame-with-prompt-if-last)
 (global-set-key [remap delete-frame]
                 #'dmr/delete-frame-with-prompt-if-last)
+
+;;;; Clojure ;;;;
+
+(after! clj-refactor
+  (setq cljr-add-ns-to-blank-clj-files nil))
