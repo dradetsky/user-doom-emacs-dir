@@ -146,6 +146,9 @@
                '(counsel-projectile-find-file . dmr:string-length<)))
 
 (after! evil
+  ;; mouse-wheel-text-scale
+  (global-unset-key [C-mouse-4])
+  (global-unset-key [C-mouse-5])
   (undefine-key! evil-normal-state-map
     ;; #'text-scale-increase
     "C-="
