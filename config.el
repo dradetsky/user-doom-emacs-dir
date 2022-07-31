@@ -168,6 +168,8 @@
 (global-set-key [remap delete-frame]
                 #'dmr/delete-frame-with-prompt-if-last)
 
+(map! :g "M-;" 'comment-line)
+
 ;;;; Clojure ;;;;
 
 (after! clj-refactor
