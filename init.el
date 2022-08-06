@@ -105,7 +105,7 @@
        org               ; organize your plain life in plain text
        python            ; beautiful is better than ugly
        ;;rest              ; Emacs as a REST client
-       sh                ; she sells {ba,z,fi}sh shells on the C xor
+       (sh +fish)               ; she sells {ba,z,fi}sh shells on the C xor
        yaml              ; JSON, but readable
 
        :email
