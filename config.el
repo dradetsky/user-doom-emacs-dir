@@ -157,6 +157,18 @@
   (keymap-global-unset "C-<wheel-up>")
   (keymap-global-unset "C-M-<wheel-down>")
   (keymap-global-unset "C-M-<wheel-up>")
+  ;; text-scale-pinch
+  (keymap-global-unset "<pinch>")
+  ;; text-scale-adjust
+  (keymap-global-unset "C-x C-0")
+  (keymap-global-unset "C-x C-=")
+  (keymap-global-unset "C-x C--")
+  (keymap-global-unset "C-x C-+")
+  ;; global-text-scale-adjust
+  (keymap-global-unset "C-x C-M-0")
+  (keymap-global-unset "C-x C-M-=")
+  (keymap-global-unset "C-x C-M--")
+  (keymap-global-unset "C-x C-M-+")
   (undefine-key! evil-normal-state-map
     ;; doom/increase-font-size
     "M-C-="
