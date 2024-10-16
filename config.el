@@ -149,7 +149,19 @@
   ;; mouse-wheel-text-scale
   (global-unset-key [C-mouse-4])
   (global-unset-key [C-mouse-5])
+  ;; mouse-wheel-global-text-scale
+  (global-unset-key [C-M-mouse-4])
+  (global-unset-key [C-M-mouse-5])
+  ;; mouse-wheel-global-text-scale
+  (keymap-global-unset "C-<wheel-down>")
+  (keymap-global-unset "C-<wheel-up>")
+  (keymap-global-unset "C-M-<wheel-down>")
+  (keymap-global-unset "C-M-<wheel-up>")
   (undefine-key! evil-normal-state-map
+    ;; doom/increase-font-size
+    "M-C-="
+    ;; doom/decrease-font-size
+    "M-C--"
     ;; #'text-scale-increase
     "C-="
     ;; #'text-scale-decrease
