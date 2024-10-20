@@ -199,9 +199,11 @@
 (defvar +lsp-auto-start-modes '())
 
 (define-advice lsp! (:around (&rest args))
-    (when (or (called-interactively-p 'interactive)
-              (apply 'derived-mode-p +lsp-auto-start-modes))
-      (apply args)))
+  ;; NOTE: lsp! isn't actually supposed to be called interactively, but gonna
+  ;; leave that exception in here for now
+  (when (or (called-interactively-p 'interactive)
+            (apply 'derived-mode-p +lsp-auto-start-modes))
+    (apply args)))
 
 ;; read ~/.emacs.d/lisp/doom.el for a list of hooks and their order of execution
 (remove-hook 'doom-first-buffer-hook #'global-flycheck-mode)
