@@ -208,30 +208,6 @@
 ;; read ~/.emacs.d/lisp/doom.el for a list of hooks and their order of execution
 (remove-hook 'doom-first-buffer-hook #'global-flycheck-mode)
 
-(let ((hooks '(csharp-mode-local-vars-hook
-               csharp-mode-local-vars
-               csharp-tree-sitter-mode-local-vars-hook
-               csharp-tree-sitter-mode-local-vars
-               python-mode-local-vars-hook
-               c-mode-local-vars-hook
-               c++-mode-local-vars-hook
-               objc-mode-local-vars-hook
-               cmake-mode-local-vars-hook)))
-      (cl-flet ((rm (lambda ()
-                      ;; XXX: this is redundant, but it doesn't work without it
-                      ;; & idk why
-                      (remove-hook! csharp-mode-local-vars #'lsp!)
-                      (remove-hook! hooks #'lsp!))))
-      (rm)
-      (after! csharp-mode
-        (rm))
-      (after! csharp-tree-sitter
-        (rm))
-      (after! python
-        (rm))
-      (after! python-mode
-        (rm))))
-
 ;;;; Clojure ;;;;
 
 (after! clj-refactor
