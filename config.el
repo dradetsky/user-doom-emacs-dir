@@ -225,6 +225,10 @@
       (:prefix ("e" . "eval")
                "p" #'eval-print-defun))
 
+;;;; Common Lisp ;;;;
+
+(setq +lisp-quicklisp-paths '("~/.config/quicklisp"))
+
 ;;;; Clojure ;;;;
 
 (after! clj-refactor
