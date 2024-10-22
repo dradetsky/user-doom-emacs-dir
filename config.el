@@ -208,6 +208,23 @@
 ;; read ~/.emacs.d/lisp/doom.el for a list of hooks and their order of execution
 (remove-hook 'doom-first-buffer-hook #'global-flycheck-mode)
 
+;;;; elisp ;;;;
+
+(defmacro with-curr-defun (act)
+  `(save-excursion
+    (beginning-of-defun)
+    (end-of-defun)
+    (,act)))
+
+(defun eval-print-defun ()
+  (interactive)
+  (with-curr-defun (lambda () (eval-print-last-sexp))))
+
+(map! :localleader
+      :map (emacs-lisp-mode-map lisp-interaction-mode-map)
+      (:prefix ("e" . "eval")
+               "p" #'eval-print-defun))
+
 ;;;; Clojure ;;;;
 
 (after! clj-refactor
