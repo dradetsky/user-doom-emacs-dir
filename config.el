@@ -194,6 +194,39 @@
 
 (map! :g "M-;" 'comment-line)
 
+;; free more keys ;;
+
+(keymap-global-unset "C-\\")
+
+;; other free keys ;;
+;;
+;; C-|
+
+(after! disable-mouse
+  (global-disable-mouse-mode)
+  (mapc #'disable-mouse-in-keymap
+        (list evil-motion-state-map
+              evil-normal-state-map
+              evil-visual-state-map
+              evil-insert-state-map)))
+
+;;;; Modeline ;;;;
+;;
+;; NOTE: install ttf-nerd-fonts-symbols-mono
+
+
+;;;; indent/tab ;;;;
+
+;; indent-for-tab-command
+;;
+;; tab-always-indent
+;; tab-first-completion
+;;
+;; indent-line-function
+
+(setq tab-always-indent 'complete)
+;; (setq tab-first-completion nil)
+
 ;;;; LSP ;;;;
 
 (defvar +lsp-auto-start-modes '())
