@@ -270,6 +270,10 @@
 
 (setq +lisp-quicklisp-paths '("~/.config/quicklisp"))
 
+;;;; Scheme ;;;;
+
+(setq geiser-chez-binary "chez")
+
 ;;;; Clojure ;;;;
 
 (after! clj-refactor
