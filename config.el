@@ -227,6 +227,14 @@
 (setq tab-always-indent 'complete)
 ;; (setq tab-first-completion nil)
 
+;;;; doom/reload ;;;;
+
+(defun dmr:handle-compile-buffer (_buf status)
+  (when (equal status "finished\n")
+    (kill-buffer _buf)))
+
+(setq doom-handle-compile-buffer-fn #'dmr:handle-compile-buffer)
+
 ;;;; LSP ;;;;
 
 (defvar +lsp-auto-start-modes '())
