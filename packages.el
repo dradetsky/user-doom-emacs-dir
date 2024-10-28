@@ -11,7 +11,6 @@
 ;; with the `:disable' property:
 ;(package! builtin-package :disable t)
 (package! tide :disable t)
-(package! lsp :disable t)
 (package! winner :disable t)
 (package! org-agenda :disable t)
 (package! org-capture :disable t)
