@@ -266,6 +266,9 @@
       (:prefix ("e" . "eval")
                "p" #'eval-print-defun))
 
+;; NOTE: doom sets this to fundamental-mode for some reason
+(setq initial-major-mode 'lisp-interaction-mode)
+
 ;;;; Common Lisp ;;;;
 
 (setq +lisp-quicklisp-paths '("~/.config/quicklisp"))
