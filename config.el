@@ -246,6 +246,11 @@
        (:when (modulep! :tools magit)
         :desc "Magit refresh" "z" #'magit-refresh)))
 
+;;;; file templates ;;;;
+
+;; NOTE: this allows us to load the file templates code and use it manually.
+(setq +file-templates-inhibit t)
+
 ;;;; elisp ;;;;
 
 (defmacro with-curr-defun (act)
