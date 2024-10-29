@@ -288,3 +288,8 @@
 
 (after! clj-refactor
   (setq cljr-add-ns-to-blank-clj-files nil))
+
+;;;; json ;;;;
+
+(after! json-mode
+  (setq json-reformat:indent-width 2))
