@@ -332,3 +332,39 @@
 ;;
 ;; (after! org
 ;;   (setq org-export-allow-bind-keywords t))
+
+;;;; Python ;;;;
+
+(map! :localleader
+      :map python-mode-map
+      :desc "LSP on" "l" #'lsp)
+
+;; TODO: want to be able to disable lsp, but nontrivial. There's 2 steps:
+;; 0. set the buffer modes to non-lsp
+;; 1. turn off the lsp server
+
+;; XXX: this is the default. I don't think it matters.
+(setq lsp-keep-workspace-alive nil)
+
+;; Should work okay
+(defun dmr:hard-kill-py-lsp ()
+  (let ((store lsp-restart))
+    (setq lsp-restart 'ignore)
+    (kill-buffer "*pylsp*")
+    (setq lsp-restart store)))
+
+
+;; XXX: this is flaky & I can't tell why.
+(defun dmr:try-shutdown-lsp ()
+  (interactive)
+  (let ((ws (lsp-workspaces)))
+    (if (eq (length ws) 1)
+        (let ((w (car ws)))
+          (with-lsp-workspace
+              (lsp--shutdown-workspace))))
+    (message "shutdown fail (%s)" (length ws))))
+
+(defun dmr:turn-off-py-lsp ()
+  (interactive)
+  (dmr:try-shutdown-lsp)
+  (dmr:hard-kill-py-lsp))
