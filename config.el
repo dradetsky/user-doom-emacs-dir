@@ -79,11 +79,6 @@
 (after! newcomment
   (setq comment-empty-lines t))
 
-(after! org
-  (setq org-startup-indented nil)
-  (setq org-list-demote-modify-bullet nil)
-  (setq org-hide-leading-stars nil))
-
 (after! evil-markdown
   (map! :map evil-markdown-mode-map
         :i "M-b" #'backward-word))
@@ -298,6 +293,11 @@
   (setq typescript-indent-level 2))
 
 ;;;; Org ;;;;
+
+(after! org
+  (setq org-startup-indented nil)
+  (setq org-list-demote-modify-bullet nil)
+  (setq org-hide-leading-stars nil))
 
 ;; NOTE: I _think_ this is a deprecated variable
 ;;
