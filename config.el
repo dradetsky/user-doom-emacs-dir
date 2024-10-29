@@ -284,6 +284,17 @@
 
 (setq +lisp-quicklisp-paths '("~/.config/quicklisp"))
 
+(defun dmr:maybe-add-scheme (s)
+  (when s
+    (concat "file://" s)))
+
+(setq common-lisp-hyperspec-root
+      (or (dmr:maybe-add-scheme
+           (cl-find-if #'file-exists-p
+                       '("/fake/omg"
+                         "/usr/share/doc/clhs/HyperSpec/")))
+          "http://www.lispworks.com/reference/HyperSpec/"))
+
 ;;;; Scheme ;;;;
 
 (setq geiser-chez-binary "chez")
