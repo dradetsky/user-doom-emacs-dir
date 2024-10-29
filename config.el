@@ -251,6 +251,10 @@
 ;; NOTE: this allows us to load the file templates code and use it manually.
 (setq +file-templates-inhibit t)
 
+;;;; browser ;;;;
+
+(setq browse-url-browser-function 'eww-browse-url)
+
 ;;;; elisp ;;;;
 
 (defmacro with-curr-defun (act)
