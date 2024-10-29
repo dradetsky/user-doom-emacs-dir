@@ -7,6 +7,8 @@
 
 ;; (package! systemd-mode :pin "b6ae63a...")
 
+;; NOTE: without this, since lsp won't autostart due to our define-advice, emacs
+;; will assume lsp is busted & try to fall back to using tide.
 (package! tide :disable t)
 (package! winner :disable t)
 (package! org-agenda :disable t)
