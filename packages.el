@@ -7,9 +7,6 @@
 
 ;; (package! systemd-mode :pin "b6ae63a...")
 
-;; If you'd like to disable a package included with Doom, you can do so here
-;; with the `:disable' property:
-;(package! builtin-package :disable t)
 (package! tide :disable t)
 (package! winner :disable t)
 (package! org-agenda :disable t)
