@@ -191,6 +191,37 @@
 ;; other free keys ;;
 ;;
 ;; C-|
+;; M-o
+;; M-[
+;; M-]
+;; M-+
+;; M-#
+;; M-*
+;; S-M-o
+;;
+;; moar freeable(?) keys
+;;
+;; global-map:
+;;
+;; M-i   -> tab-to-tab-stop
+;; M-j   -> default-indent-new-line
+;; C-M-j -> default-indent-new-line
+;; M-k   -> kill-sentence
+;; M-t   -> transpose-word
+;; M-e   -> forward-sentence
+;; M-a   -> backward-sentence
+;; M-c   -> capitalize-word
+;; M-z   -> zap-to-char
+;; M-=   -> count-words-region
+;; M-~   -> not-modified
+;; M-@   -> mark-word
+;; M-$   -> ispell-word
+;; M-(   -> insert-parentheses
+;; M-\   -> delete-horizontal-space
+;;
+;; global-map (but lolwut):
+;;
+;; M-`   -> tmm-menubar
 
 (after! disable-mouse
   (global-disable-mouse-mode)
