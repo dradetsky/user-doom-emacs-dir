@@ -22,17 +22,4 @@
 ;; mostly just slows me down when I touch a big python project occasionally
 (package! anaconda-mode :disable t)
 
-
-;; Doom's packages are pinned to a specific commit and updated from release to
-;; release. The `unpin!' macro allows you to unpin single packages...
-;(unpin! pinned-package)
-;; ...or multiple packages
-;(unpin! pinned-package another-pinned-package)
-;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
-;(unpin! t)
-
-(package! vline :pin "f5d7b5743dceca75b81c8c95287cd5b0341debf9")
-
-;; AFAICT this is a big slow python thing suitable for big python projects, but
-;; mostly just slows me down when I touch a big python project occasionally
-(package! anaconda-mode :disable t)
+(package! nginx-mode :pin "6e9d96f58eddd69f62f7fd443d9b9753e16e0e96")
