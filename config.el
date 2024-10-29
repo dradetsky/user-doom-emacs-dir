@@ -70,11 +70,6 @@
         (setq aw-scope 'frame)
         (setq aw-ignore-current t))
 
-(after! flycheck
-        (add-to-list '+emacs-lisp-disable-flycheck-in-dirs
-                     "~/code/elisp/framework/doom/doom-emacs"
-                     "~/code/elisp/framework/doom/user-doomdir"))
-
 ;; dumb parens
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
