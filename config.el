@@ -29,11 +29,13 @@
 ;;
 ;;(setq doom-font "Spleen:style=Regular")
 
-(setq doom-font
-      (cl-find-if #'doom-font-exists-p
-                  '("Gohu GohuFont:pixelsize=14"
-                    (font-spec :family "Gohu GohuFont" :size 14)
-                    (font-spec :family "gohufont" :size 14))))
+;; XXX: without this, can't run doom-doctor
+(when (display-graphic-p)
+  (setq doom-font
+        (cl-find-if #'doom-font-exists-p
+                    '("Gohu GohuFont:pixelsize=14"
+                      (font-spec :family "Gohu GohuFont" :size 14)
+                      (font-spec :family "gohufont" :size 14)))))
 
 ;; (setq doom-font
 ;;       (font-spec :family "Gohu GohuFont" :size 14))
