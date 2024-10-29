@@ -266,6 +266,11 @@
 ;; NOTE: doom sets this to fundamental-mode for some reason
 (setq initial-major-mode 'lisp-interaction-mode)
 
+(setq source-directory
+      (cl-find-if #'file-exists-p
+                  '("~/git/tool/editor/repos-emacs/emax"
+                    "~/git/tool/editor/repos-emacs/emacs")))
+
 ;;;; Common Lisp ;;;;
 
 (setq +lisp-quicklisp-paths '("~/.config/quicklisp"))
