@@ -288,3 +288,8 @@
 
 (after! json-mode
   (setq json-reformat:indent-width 2))
+
+;;;; js ;;;;
+
+(after! js
+  (setq js-indent-level 2))
