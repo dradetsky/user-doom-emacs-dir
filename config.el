@@ -249,6 +249,13 @@
 ;; read ~/.emacs.d/lisp/doom.el for a list of hooks and their order of execution
 (remove-hook 'doom-first-buffer-hook #'global-flycheck-mode)
 
+;;;; version control ;;;;
+
+(map! :leader
+      (:prefix-map ("g" . "git")
+       (:when (modulep! :tools magit)
+        :desc "Magit refresh" "z" #'magit-refresh)))
+
 ;;;; elisp ;;;;
 
 (defmacro with-curr-defun (act)
