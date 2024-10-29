@@ -290,6 +290,26 @@
 ;;
 ;; (setq shr-inhibit-images t)
 
+;;;; corfu ;;;;
+
+(defun dmr:corfu-complete-idx (k)
+  (let ((corfu--index k))
+    (corfu--insert 'finished)))
+
+(defmacro dmr:corfu-make-complete-idx (k)
+  `(lambda ()
+     (interactive)
+     (dmr:corfu-complete-idx ,k)))
+
+;; XXX TODO: check for corfu too?
+(map! :when (modulep! :editor evil +everywhere)
+      :map corfu-map
+      "M-7" (dmr:corfu-make-complete-idx 2)
+      "M-8" (dmr:corfu-make-complete-idx 3)
+      "M-9" (dmr:corfu-make-complete-idx 4)
+      "M-0" (dmr:corfu-make-complete-idx 5))
+      ;; "C-\\" (dmr:corfu-make-complete-idx 2))
+
 ;;;; elisp ;;;;
 
 (defmacro with-curr-defun (act)
