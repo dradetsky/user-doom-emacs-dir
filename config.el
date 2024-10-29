@@ -296,3 +296,10 @@
 
 (after! typescript-mode
   (setq typescript-indent-level 2))
+
+;;;; Org ;;;;
+
+;; NOTE: I _think_ this is a deprecated variable
+;;
+;; (after! org
+;;   (setq org-export-allow-bind-keywords t))
