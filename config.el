@@ -30,6 +30,9 @@
 ;;(setq doom-font "Spleen:style=Regular")
 
 ;; XXX: without this, can't run doom-doctor
+;;
+;; probably because doom-font-exists-p depends on find-font, which uses the
+;; frame object and thus probably depends on the window system being running.
 (when (display-graphic-p)
   (setq doom-font
         (cl-find-if #'doom-font-exists-p
