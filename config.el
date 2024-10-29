@@ -255,6 +255,10 @@
 
 (setq browse-url-browser-function 'eww-browse-url)
 
+;; globally disable eww images with:
+;;
+;; (setq shr-inhibit-images t)
+
 ;;;; elisp ;;;;
 
 (defmacro with-curr-defun (act)
