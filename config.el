@@ -37,11 +37,6 @@
                       (font-spec :family "Gohu GohuFont" :size 14)
                       (font-spec :family "gohufont" :size 14)))))
 
-;; (setq doom-font
-;;       (font-spec :family "Gohu GohuFont" :size 14))
-;;       (font-spec :family "gohufont" :size 14))
-;;       "Gohu GohuFont:pixelsize=14")
-
 ;; NOTE: wanted to do some fine-tuning, like below, but this messed up colors in
 ;; terminal somehow
 ;;
