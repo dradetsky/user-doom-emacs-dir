@@ -267,6 +267,13 @@
 (keymap-global-unset "S-<wheel-left>")
 (keymap-global-unset "S-<wheel-right>")
 
+(defun dmr:disable-mouse ()
+  (setq track-mouse nil))
+
+(add-hook! 'window-configuration-change-hook #'dmr:disable-mouse)
+
+(setq track-mouse nil)
+
 ;;;; evil ;;;;
 
 (defun dmr:test-rebind ()
