@@ -190,7 +190,7 @@
 
 ;; other free keys ;;
 ;;
-;; C-|
+;; C-=
 ;; M-o
 ;; M-[
 ;; M-]
@@ -198,6 +198,9 @@
 ;; M-#
 ;; M-*
 ;; S-M-o
+;; C-: (C-S-;)
+;; C-" (C-S-')
+;; C-| (C-S-\)
 ;;
 ;; moar freeable(?) keys
 ;;
