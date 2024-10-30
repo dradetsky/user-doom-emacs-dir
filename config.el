@@ -267,6 +267,23 @@
 (keymap-global-unset "S-<wheel-left>")
 (keymap-global-unset "S-<wheel-right>")
 
+;;;; evil ;;;;
+
+(defun dmr:test-rebind ()
+  (interactive)
+  (message "LZOLZLZZZZZZ"))
+
+(after! evil
+  (map! :map evil-insert-state-map
+        "M-n" #'evil-next-line
+        "M-p" #'evil-previous-line
+        ;; TODO: use these for something worthwhile
+        "C-i" #'dmr:test-rebind
+        "C-m" #'dmr:test-rebind)
+
+  (map! :map evil-motion-state-map
+        "C-m" #'dmr:test-rebind))
+
 ;;;; Modeline ;;;;
 ;;
 ;; NOTE: install ttf-nerd-fonts-symbols-mono
