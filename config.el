@@ -231,6 +231,39 @@
               evil-visual-state-map
               evil-insert-state-map)))
 
+(keymap-global-unset "C-<down-mouse-1>")
+(keymap-global-unset "S-<down-mouse-1>")
+(keymap-global-unset "C-<down-mouse-3>")
+(keymap-global-unset "C-<down-mouse-2>")
+
+(keymap-global-unset "C-M-<down-mouse-1>")
+(keymap-global-unset "C-M-<drag-mouse-1>")
+(keymap-global-unset "C-M-<mouse-1>")
+
+(keymap-global-unset "M-<down-mouse-1>")
+(keymap-global-unset "M-<drag-mouse-1>")
+(keymap-global-unset "M-<mouse-1>")
+(keymap-global-unset "M-<mouse-2>")
+(keymap-global-unset "M-<mouse-3>")
+(keymap-global-unset "M-<mouse-4>")
+(keymap-global-unset "M-<mouse-5>")
+(keymap-global-unset "M-<mouse-6>")
+(keymap-global-unset "M-<mouse-7>")
+(keymap-global-unset "M-<wheel-down>")
+(keymap-global-unset "M-<wheel-up>")
+(keymap-global-unset "M-<wheel-left>")
+(keymap-global-unset "M-<wheel-right>")
+
+(keymap-global-unset "S-<mouse-3>")
+(keymap-global-unset "S-<mouse-4>")
+(keymap-global-unset "S-<mouse-5>")
+(keymap-global-unset "S-<mouse-6>")
+(keymap-global-unset "S-<mouse-7>")
+(keymap-global-unset "S-<wheel-down>")
+(keymap-global-unset "S-<wheel-up>")
+(keymap-global-unset "S-<wheel-left>")
+(keymap-global-unset "S-<wheel-right>")
+
 ;;;; Modeline ;;;;
 ;;
 ;; NOTE: install ttf-nerd-fonts-symbols-mono
