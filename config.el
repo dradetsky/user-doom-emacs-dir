@@ -389,8 +389,8 @@
       "M-7" (dmr:corfu-make-complete-idx 2)
       "M-8" (dmr:corfu-make-complete-idx 3)
       "M-9" (dmr:corfu-make-complete-idx 4)
-      "M-0" (dmr:corfu-make-complete-idx 5))
-      ;; "C-\\" (dmr:corfu-make-complete-idx 2))
+      "M-0" (dmr:corfu-make-complete-idx 5)
+      "C-\\" #'+corfu/move-to-minibuffer)
 
 ;;;; elisp ;;;;
 
