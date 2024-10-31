@@ -337,6 +337,28 @@
        (:when (modulep! :tools magit)
         :desc "Magit refresh" "z" #'magit-refresh)))
 
+(defun dmr:cmd->str (cmd)
+  (string-trim-right
+   (shell-command-to-string cmd)))
+
+(defun dmr:yank-fn (meth &rest args)
+  (lambda ()
+    (interactive)
+    (kill-new
+     (apply meth args))))
+
+(defconst dmr:git-full-commit-cmd "git rev-parse HEAD")
+(defconst dmr:git-short-commit-cmd "git rev-parse --short HEAD")
+(fset 'dmr:yank-head-commit (dmr:yank-fn 'dmr:cmd->str dmr:git-full-commit-cmd))
+(fset 'dmr:yank-short-commit (dmr:yank-fn 'dmr:cmd->str dmr:git-short-commit-cmd))
+
+(map! :leader
+      (:prefix-map ("g" . "git")
+                   (:prefix-map ("i" . "info")
+                                ;; XXX: do we want this condition?
+                                (:when (modulep! :tools magit)
+                                  :desc "Yank head short commit" "s" #'dmr:yank-short-commit
+                                  :desc "Yank head commit" "y" #'dmr:yank-head-commit))))
 ;;;; file templates ;;;;
 
 ;; NOTE: this allows us to load the file templates code and use it manually.
