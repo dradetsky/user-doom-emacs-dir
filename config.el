@@ -283,13 +283,13 @@
 (after! evil
   (map! :map evil-insert-state-map
         "M-n" #'evil-next-line
-        "M-p" #'evil-previous-line
-        ;; TODO: use these for something worthwhile
-        "C-i" #'dmr:test-rebind
-        "C-m" #'dmr:test-rebind)
+        "M-p" #'evil-previous-line))
 
-  (map! :map evil-motion-state-map
-        "C-m" #'dmr:test-rebind))
+
+  ;; NOTE: cant do this bc it actually is RET
+  ;;
+  ;; (map! :map evil-motion-state-map
+  ;;       "C-m" #'dmr:test-rebind))
 
 ;;;; Modeline ;;;;
 ;;
