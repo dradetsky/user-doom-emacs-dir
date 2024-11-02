@@ -110,8 +110,6 @@
                    +lsp)
        json              ; At least it ain't XML
        jsonnet
-       java              ; the poster child for carpal tunnel syndrome
-       javascript        ; all(hope(abandon(ye(who(enter(here))))))
        kotlin            ; a better, slicker Java(Script)
        markdown          ; writing docs for people to ignore
        org               ; organize your plain life in plain text
