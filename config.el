@@ -530,3 +530,38 @@
   (interactive)
   (dmr:try-shutdown-lsp)
   (dmr:hard-kill-py-lsp))
+
+;;;; AsciiDoc ;;;;
+
+(after! adoc-mode
+  ;; TODO: better font config
+  (custom-set-faces
+   ;; '(adoc-complex-replacement-face
+   ;;   ((default (:inherit adoc-meta-face))))
+
+   '(adoc-meta-face ((default (:family nil)))))
+
+  (set-face-attribute 'adoc-complex-replacement-face nil :box nil)
+  ;; (set-face-attribute 'adoc-meta-face nil :family nil)
+  (setq adoc-script-raise '(0.0 0.0)))
+
+;;;; pkgbuild-mode ;;;;
+
+(after! pkgbuild-mode
+  (setq pkgbuild-update-sums-on-save nil)
+  (setq pkgbuild-template "")
+  (setq pkgbuild-initialize nil))
+
+;;;; email ;;;;
+
+(add-to-list 'auto-mode-alist
+             '("/tmp/neomutt-" . mail-mode))
+
+(defun dmr:mail-mode-hook ()
+  (setq fill-column 60))
+
+(add-hook! mail-mode
+           #'dmr:mail-mode-hook
+           #'doom-disable-line-numbers-h)
+
+;;;; end? ;;;;
