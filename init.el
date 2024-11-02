@@ -8,7 +8,9 @@
        :completion
        ;;company           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
-       ivy               ; a search engine for love and life
+       ;; ivy               ; a search engine for love and life
+       (corfu +orderless)
+       vertico
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -27,7 +29,7 @@
        ;;nav-flash         ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
-       (popup +defaults)   ; tame sudden yet inevitable temporary windows
+       ;; (popup +defaults)   ; tame sudden yet inevitable temporary windows
        ;;tabs              ; a tab bar for Emacs
        ;;treemacs          ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
@@ -39,7 +41,7 @@
 
        :editor
        (evil +everywhere); come to the dark side, we have cookies
-       ;;file-templates    ; auto-snippets for empty files
+       file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
        ;;(format +onsave)  ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
@@ -57,6 +59,7 @@
        undo              ; persistent, smarter undo for your inevitable mistakes
        ;;vc                ; version-control and Emacs, sitting in a tree
        vc-lite
+       eww
 
        :term
        ;;eshell            ; the elisp shell that works everywhere
@@ -65,7 +68,7 @@
        ;;vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       ;;syntax              ; tasing you for every semicolon you forget
+       syntax              ; tasing you for every semicolon you forget
 
        :tools
        ansible
@@ -76,7 +79,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       ;;lsp
+       lsp
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -86,6 +89,7 @@
        ;;taskrunner        ; taskrunner for all your projects
        terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
+       tree-sitter
        ;;upload            ; map local to remote projects via ssh/ftp
        vimrc
 
@@ -93,9 +97,17 @@
        linux-dmr
 
        :lang
+       archlinux
+       (csharp +tree-sitter
+               +dotnet
+               +lsp)
        clojure
+       common-lisp
        emacs-lisp        ; drown in parentheses
        go         ; the hipster dialect
+       java              ; the poster child for carpal tunnel syndrome
+       (javascript +tree-sitter ; all(hope(abandon(ye(who(enter(here))))))
+                   +lsp)
        json              ; At least it ain't XML
        jsonnet
        java              ; the poster child for carpal tunnel syndrome
@@ -103,13 +115,15 @@
        kotlin            ; a better, slicker Java(Script)
        markdown          ; writing docs for people to ignore
        org               ; organize your plain life in plain text
-       python            ; beautiful is better than ugly
+       (python +lsp          ; beautiful is better than ugly
+               +tree-sitter)
+       (racket +xp)
        ;;rest              ; Emacs as a REST client
+       (scheme +chez)
        (sh +fish)               ; she sells {ba,z,fi}sh shells on the C xor
        yaml              ; JSON, but readable
 
        :email
-       mutt
        :app
        :config
        (default +bindings))
