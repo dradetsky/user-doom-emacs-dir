@@ -94,8 +94,6 @@
        vimrc
 
        :os
-       linux-dmr
-
        :lang
        archlinux
        (csharp +tree-sitter
