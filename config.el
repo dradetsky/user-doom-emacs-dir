@@ -443,6 +443,7 @@
 (setq source-directory
       (cl-find-if #'file-exists-p
                   '("~/git/tool/editor/repos-emacs/emax"
+                    "~/git/tool/editor/repos-emacs/full"
                     "~/git/tool/editor/repos-emacs/emacs")))
 
 ;;;; Common Lisp ;;;;
