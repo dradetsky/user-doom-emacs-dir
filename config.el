@@ -105,20 +105,6 @@
   (interactive)
   (insert (shell-command-to-string "echo -n $(date +%F)")))
 
-(defun dmr:yank-proj-rel-buffer-filename ()
-  (interactive)
-  (if (projectile-project-root)
-      (if-let (filename (or buffer-file-name (bound-and-true-p list-buffers-directory)))
-          (let ((relname (substring filename (length (projectile-project-root)))))
-            (message (kill-new relname)))
-        (error "Couldn't find filename in current buffer"))
-    (error "Not in project")))
-
-(map! :leader
-      (:prefix ("p" . "project")
-       :desc "toggle project r/o" "E" #'projectile-toggle-project-read-only
-       :desc "yank project file name" "y" #'dmr:yank-proj-rel-buffer-filename))
-
 (defun dmr:string-length< (str0 str1)
   (let ((len0 (length str0))
         (len1 (length str1)))
@@ -290,6 +276,22 @@
   ;;
   ;; (map! :map evil-motion-state-map
   ;;       "C-m" #'dmr:test-rebind))
+
+;;;; Projectile ;;;;
+
+(defun dmr:yank-proj-rel-buffer-filename ()
+  (interactive)
+  (if (projectile-project-root)
+      (if-let (filename (or buffer-file-name (bound-and-true-p list-buffers-directory)))
+          (let ((relname (substring filename (length (projectile-project-root)))))
+            (message (kill-new relname)))
+        (error "Couldn't find filename in current buffer"))
+    (error "Not in project")))
+
+(map! :leader
+      (:prefix ("p" . "project")
+       :desc "toggle project r/o" "E" #'projectile-toggle-project-read-only
+       :desc "yank project file name" "y" #'dmr:yank-proj-rel-buffer-filename))
 
 ;;;; Modeline ;;;;
 ;;
