@@ -23,3 +23,13 @@
 (package! anaconda-mode :disable t)
 
 (package! nginx-mode :pin "6e9d96f58eddd69f62f7fd443d9b9753e16e0e96")
+
+;; NOTE: turns out I hate caddy
+;;
+;; (package! caddyfile-mode :pin "fc41148f5a7eb320f070666f046fb9d88cf17680")
+
+(package! adoc-mode :pin "2c2eb8043623aa99d35aacbad2ee39188bf1bad3")
+
+;; NOTE: breaks comment region
+;; XXX: actually I'm not sure this is true
+(package! evil-nerd-commenter :disable t)
