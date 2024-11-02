@@ -325,6 +325,9 @@
 
 ;;;; package management ;;;;
 
+;; NOTE: dmr:package-get-url depends on a fn in straight, so we load it.
+(use-package! straight)
+
 (defun dmr:pkg-url ()
   (interactive)
   (if-let ((pkg (symbol-at-point))
