@@ -323,6 +323,27 @@
 
 (setq doom-handle-compile-buffer-fn #'dmr:handle-compile-buffer)
 
+;;;; package management ;;;;
+
+(defun dmr:pkg-url ()
+  (interactive)
+  (if-let ((pkg (symbol-at-point))
+           (url (dmr:package-get-url pkg)))
+      (progn
+        (kill-new url)
+        (message url))
+    (user-error "no pkg")))
+
+(defun dmr:package-get-url (pkg)
+  (let ((recipe (doom-package-recipe pkg)))
+    (let ((host (plist-get recipe :host))
+          (repo (plist-get recipe :repo)))
+      (if (not (or host repo))
+          (user-error "idk")
+        (pcase host
+          ('github (concat "github.com/" repo))
+          (_ (user-error "idk host %s" host)))))))
+
 ;;;; LSP ;;;;
 
 (defvar +lsp-auto-start-modes '())
