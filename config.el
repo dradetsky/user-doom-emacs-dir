@@ -345,6 +345,7 @@
           (user-error "idk")
         (pcase host
           ('github (concat "github.com/" repo))
+          ('codeberg (concat "codeberg.org/" repo))
           (_ (user-error "idk host %s" host)))))))
 
 ;;;; LSP ;;;;
