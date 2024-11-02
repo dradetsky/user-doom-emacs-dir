@@ -105,22 +105,6 @@
   (interactive)
   (insert (shell-command-to-string "echo -n $(date +%F)")))
 
-(defun dmr:string-length< (str0 str1)
-  (let ((len0 (length str0))
-        (len1 (length str1)))
-    (< len0 len1)))
-
-(after! ivy
-  (add-to-list 'ivy-sort-functions-alist
-               '(+ivy/switch-to-buffer . dmr:string-length<))
-  (add-to-list 'ivy-sort-functions-alist
-               '(counsel-projectile-switch-project . dmr:string-length<))
-  ;; this one doesn't appear to work for SPC-f-f
-  (add-to-list 'ivy-sort-functions-alist
-               '(counsel-find-file . dmr:string-length<))
-  (add-to-list 'ivy-sort-functions-alist
-               '(counsel-projectile-find-file . dmr:string-length<)))
-
 (after! evil
   ;; mouse-wheel-text-scale
   (global-unset-key [C-mouse-4])
@@ -292,6 +276,27 @@
       (:prefix ("p" . "project")
        :desc "toggle project r/o" "E" #'projectile-toggle-project-read-only
        :desc "yank project file name" "y" #'dmr:yank-proj-rel-buffer-filename))
+
+;;;; Ivy ;;;;
+;;
+;; NOTE: fun fact: we don't use Ivy anymore (moved to corfu/vertico). Should
+;; probably remove this soon, but keeping it for ref for the moment.
+
+(defun dmr:string-length< (str0 str1)
+  (let ((len0 (length str0))
+        (len1 (length str1)))
+    (< len0 len1)))
+
+(after! ivy
+  (add-to-list 'ivy-sort-functions-alist
+               '(+ivy/switch-to-buffer . dmr:string-length<))
+  (add-to-list 'ivy-sort-functions-alist
+               '(counsel-projectile-switch-project . dmr:string-length<))
+  ;; this one doesn't appear to work for SPC-f-f
+  (add-to-list 'ivy-sort-functions-alist
+               '(counsel-find-file . dmr:string-length<))
+  (add-to-list 'ivy-sort-functions-alist
+               '(counsel-projectile-find-file . dmr:string-length<)))
 
 ;;;; Modeline ;;;;
 ;;
