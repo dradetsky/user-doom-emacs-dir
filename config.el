@@ -40,26 +40,10 @@
                       (font-spec :family "Gohu GohuFont" :size 14)
                       (font-spec :family "gohufont" :size 14)))))
 
-;; NOTE: wanted to do some fine-tuning, like below, but this messed up colors in
-;; terminal somehow
-;;
-;; (custom-theme-set-faces! 'doom-one
-;;   '(default
-;;      ;:background "#01242b"
-;;      :background "#01141b"
-;;      :foreground "#dbd2df"))
-(setq doom-theme 'doom-one)
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
-;; (setq display-line-numbers-type nil)
 
 ;; dumb parens
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
-
-;; for xterms; means "not-flashing cursor"
-(setq visible-cursor nil)
 
 ;;; which-key expt
 ;;(setq which-key-idle-delay 10000)
@@ -155,6 +139,26 @@
 ;; global-map (but lolwut):
 ;;
 ;; M-`   -> tmm-menubar
+
+;;;; theme/visuals ;;;;
+
+;; NOTE: wanted to do some fine-tuning, like below, but this messed up colors in
+;; terminal somehow
+;;
+;; (custom-theme-set-faces! 'doom-one
+;;   '(default
+;;      ;:background "#01242b"
+;;      :background "#01141b"
+;;      :foreground "#dbd2df"))
+(setq doom-theme 'doom-one)
+
+;; This determines the style of line numbers in effect. If set to `nil', line
+;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq display-line-numbers-type t)
+;; (setq display-line-numbers-type nil)
+
+;; for xterms; means "not-flashing cursor"
+(setq visible-cursor nil)
 
 ;;;; ace ;;;;
 
