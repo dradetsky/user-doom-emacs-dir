@@ -196,6 +196,12 @@
 
 (setq track-mouse nil)
 
+;;;; env ;;;;
+
+(setq shell-file-name (executable-find "bash"))
+(setq-default vterm-shell (executable-find "fish"))
+(setq-default explicit-shell-file-name (executable-find "fish"))
+
 ;;;; evil ;;;;
 
 (defun dmr:test-rebind ()
