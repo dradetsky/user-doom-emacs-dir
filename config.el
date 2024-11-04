@@ -40,8 +40,7 @@
                       (font-spec :family "Gohu GohuFont" :size 14)
                       (font-spec :family "gohufont" :size 14)))))
 
-
-
+;; Keep us from changing text size since it looks awful
 (after! evil
   ;; text-scale-adjust
   (keymap-global-unset "C-x C-0")
