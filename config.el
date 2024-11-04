@@ -63,12 +63,6 @@
     ;; #'text-scale-decrease
     "C--"))
 
-(defun undo-pin-truncation ()
-  (let ((keyword '("(package!\\_>" (0 (+emacs-lisp-truncate-pin)))))
-    (font-lock-remove-keywords nil (list keyword))))
-(add-hook! 'emacs-lisp-mode-hook #'undo-pin-truncation)
-(add-hook! 'elisp-mode-hook #'undo-pin-truncation)
-
 ;; XXX: i'm not sure i defined the fn correctly in autoloads
 ;;
 (global-set-key [remap doom/delete-frame-with-prompt]
@@ -418,6 +412,13 @@
                   '("~/git/tool/editor/repos-emacs/emax"
                     "~/git/tool/editor/repos-emacs/full"
                     "~/git/tool/editor/repos-emacs/emacs")))
+
+;; Doom-specific
+(defun undo-pin-truncation ()
+  (let ((keyword '("(package!\\_>" (0 (+emacs-lisp-truncate-pin)))))
+    (font-lock-remove-keywords nil (list keyword))))
+(add-hook! 'emacs-lisp-mode-hook #'undo-pin-truncation)
+(add-hook! 'elisp-mode-hook #'undo-pin-truncation)
 
 ;;;; Common Lisp ;;;;
 
