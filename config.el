@@ -61,11 +61,6 @@
 ;; for xterms; means "not-flashing cursor"
 (setq visible-cursor nil)
 
-(add-hook! 'eldoc-mode-hook
-  (remove-hook 'pre-command-hook 'eldoc-pre-command-refresh-echo-area 'local))
-;; (after! eldoc
-;;   (remove-hook 'pre-command-hook #'eldoc-pre-command-refresh-echo-area))
-
 ;;; which-key expt
 ;;(setq which-key-idle-delay 10000)
 (setq which-key-idle-delay 1.0)
@@ -379,6 +374,13 @@
 
 (after! newcomment
   (setq comment-empty-lines t))
+
+;;;; eldoc ;;;;
+
+(add-hook! 'eldoc-mode-hook
+  (remove-hook 'pre-command-hook 'eldoc-pre-command-refresh-echo-area 'local))
+;; (after! eldoc
+;;   (remove-hook 'pre-command-hook #'eldoc-pre-command-refresh-echo-area))
 
 ;;;; elisp ;;;;
 
