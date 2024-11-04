@@ -69,8 +69,6 @@
 (global-set-key [remap delete-frame]
                 #'dmr/delete-frame-with-prompt-if-last)
 
-(map! :g "M-;" 'comment-line)
-
 ;; free more keys ;;
 
 (keymap-global-unset "C-\\")
@@ -356,6 +354,8 @@
 
 (after! newcomment
   (setq comment-empty-lines t))
+
+(map! :g "M-;" 'comment-line)
 
 ;;;; eldoc ;;;;
 
