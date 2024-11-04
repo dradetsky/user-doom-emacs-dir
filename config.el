@@ -42,9 +42,6 @@
 
 
 
-;; dumb parens
-(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
-
 (after! evil
   ;; text-scale-adjust
   (keymap-global-unset "C-x C-0")
@@ -193,6 +190,11 @@
   ;;
   ;; (map! :map evil-motion-state-map
   ;;       "C-m" #'dmr:test-rebind))
+
+;;;; Parens ;;;;
+
+;; dumb parens
+(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
 ;;;; Projectile ;;;;
 
