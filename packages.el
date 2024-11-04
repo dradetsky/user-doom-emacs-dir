@@ -36,3 +36,7 @@
 ;; NOTE: breaks comment region
 ;; XXX: actually I'm not sure this is true
 (package! evil-nerd-commenter :disable t)
+
+;;;; v just dev v ;;;;
+
+;;;; ^ just dev ^ ;;;;
