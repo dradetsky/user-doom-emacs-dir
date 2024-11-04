@@ -62,13 +62,6 @@
     ;; #'text-scale-decrease
     "C--"))
 
-;; XXX: i'm not sure i defined the fn correctly in autoloads
-;;
-(global-set-key [remap doom/delete-frame-with-prompt]
-                #'dmr/delete-frame-with-prompt-if-last)
-(global-set-key [remap delete-frame]
-                #'dmr/delete-frame-with-prompt-if-last)
-
 ;; free more keys ;;
 
 (keymap-global-unset "C-\\")
@@ -130,6 +123,13 @@
 
 ;; for xterms; means "not-flashing cursor"
 (setq visible-cursor nil)
+
+;; XXX: i'm not sure i defined the fn correctly in autoloads
+;;
+(global-set-key [remap doom/delete-frame-with-prompt]
+                #'dmr/delete-frame-with-prompt-if-last)
+(global-set-key [remap delete-frame]
+                #'dmr/delete-frame-with-prompt-if-last)
 
 ;;;; ace ;;;;
 
