@@ -45,14 +45,6 @@
 ;; dumb parens
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
-;;; which-key expt
-;;(setq which-key-idle-delay 10000)
-(setq which-key-idle-delay 1.0)
-(setq which-key-idle-secondary-delay 0.05)
-
-;; (setq load-file-rep-suffixes '("" ".gz"))
-;; (auto-compression-mode 1)
-
 (after! evil
   ;; text-scale-adjust
   (keymap-global-unset "C-x C-0")
@@ -389,6 +381,15 @@
   (interactive)
   (insert (shell-command-to-string "echo -n $(date +%F)")))
 
+;;;; wtf even is this? ;;;;
+
+;;; which-key expt
+;;(setq which-key-idle-delay 10000)
+(setq which-key-idle-delay 1.0)
+(setq which-key-idle-secondary-delay 0.05)
+
+;; (setq load-file-rep-suffixes '("" ".gz"))
+;; (auto-compression-mode 1)
 
 ;;;; elisp ;;;;
 
