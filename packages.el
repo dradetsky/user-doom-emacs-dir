@@ -16,7 +16,10 @@
 
 (package! vline :pin "f5d7b5743dceca75b81c8c95287cd5b0341debf9")
 
-(package! disable-mouse :pin "93a55a6453f34049375f97d3cf817b4e6db46f25")
+;; TODO: this is going into melpa, so pin
+(package! inhibit-mouse
+  :recipe (:host github
+           :repo "jamescherti/inhibit-mouse.el"))
 
 ;; AFAICT this is a big slow python thing suitable for big python projects, but
 ;; mostly just slows me down when I touch a big python project occasionally

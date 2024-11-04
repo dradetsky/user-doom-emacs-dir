@@ -106,19 +106,6 @@
   (insert (shell-command-to-string "echo -n $(date +%F)")))
 
 (after! evil
-  ;; mouse-wheel-text-scale
-  (global-unset-key [C-mouse-4])
-  (global-unset-key [C-mouse-5])
-  ;; mouse-wheel-global-text-scale
-  (global-unset-key [C-M-mouse-4])
-  (global-unset-key [C-M-mouse-5])
-  ;; mouse-wheel-global-text-scale
-  (keymap-global-unset "C-<wheel-down>")
-  (keymap-global-unset "C-<wheel-up>")
-  (keymap-global-unset "C-M-<wheel-down>")
-  (keymap-global-unset "C-M-<wheel-up>")
-  ;; text-scale-pinch
-  (keymap-global-unset "<pinch>")
   ;; text-scale-adjust
   (keymap-global-unset "C-x C-0")
   (keymap-global-unset "C-x C-=")
@@ -196,47 +183,12 @@
 ;;
 ;; M-`   -> tmm-menubar
 
-(after! disable-mouse
-  (global-disable-mouse-mode)
-  (mapc #'disable-mouse-in-keymap
-        (list evil-motion-state-map
-              evil-normal-state-map
-              evil-visual-state-map
-              evil-insert-state-map)))
+;;;; mouse ;;;;
 
-(keymap-global-unset "C-<down-mouse-1>")
-(keymap-global-unset "S-<down-mouse-1>")
-(keymap-global-unset "C-<down-mouse-3>")
-(keymap-global-unset "C-<down-mouse-2>")
+(use-package! inhibit-mouse
+  :config (inhibit-mouse-mode))
 
-(keymap-global-unset "C-M-<down-mouse-1>")
-(keymap-global-unset "C-M-<drag-mouse-1>")
-(keymap-global-unset "C-M-<mouse-1>")
-
-(keymap-global-unset "M-<down-mouse-1>")
-(keymap-global-unset "M-<drag-mouse-1>")
-(keymap-global-unset "M-<mouse-1>")
-(keymap-global-unset "M-<mouse-2>")
-(keymap-global-unset "M-<mouse-3>")
-(keymap-global-unset "M-<mouse-4>")
-(keymap-global-unset "M-<mouse-5>")
-(keymap-global-unset "M-<mouse-6>")
-(keymap-global-unset "M-<mouse-7>")
-(keymap-global-unset "M-<wheel-down>")
-(keymap-global-unset "M-<wheel-up>")
-(keymap-global-unset "M-<wheel-left>")
-(keymap-global-unset "M-<wheel-right>")
-
-(keymap-global-unset "S-<mouse-3>")
-(keymap-global-unset "S-<mouse-4>")
-(keymap-global-unset "S-<mouse-5>")
-(keymap-global-unset "S-<mouse-6>")
-(keymap-global-unset "S-<mouse-7>")
-(keymap-global-unset "S-<wheel-down>")
-(keymap-global-unset "S-<wheel-up>")
-(keymap-global-unset "S-<wheel-left>")
-(keymap-global-unset "S-<wheel-right>")
-
+;; NOTE: I think this stuff is useless
 (defun dmr:disable-mouse ()
   (setq track-mouse nil))
 
