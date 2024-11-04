@@ -50,8 +50,6 @@
 ;;      :foreground "#dbd2df"))
 (setq doom-theme 'doom-one)
 
-(setq org-directory "~/code/elisp/org-dir/")
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -446,6 +444,8 @@
   (setq typescript-indent-level 2))
 
 ;;;; Org ;;;;
+
+(setq org-directory "~/code/elisp/org-dir/")
 
 (after! org
   (setq org-startup-indented nil)
