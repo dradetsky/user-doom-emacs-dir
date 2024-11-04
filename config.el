@@ -61,10 +61,6 @@
 ;; for xterms; means "not-flashing cursor"
 (setq visible-cursor nil)
 
-(after! evil-markdown
-  (map! :map evil-markdown-mode-map
-        :i "M-b" #'backward-word))
-
 (add-hook! 'eldoc-mode-hook
   (remove-hook 'pre-command-hook 'eldoc-pre-command-refresh-echo-area 'local))
 ;; (after! eldoc
@@ -460,6 +456,12 @@
 ;;
 ;; (after! org
 ;;   (setq org-export-allow-bind-keywords t))
+
+;;;; Markdown ;;;;
+
+(after! evil-markdown
+  (map! :map evil-markdown-mode-map
+        :i "M-b" #'backward-word))
 
 ;;;; Python ;;;;
 
