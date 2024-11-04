@@ -53,15 +53,6 @@
 ;; (setq load-file-rep-suffixes '("" ".gz"))
 ;; (auto-compression-mode 1)
 
-(defun dmr:comment-header-info ()
-  (interactive)
-  (let ((current-date (shell-command-to-string "echo -n $(date +%F)")))
-    (insert (format "(%s, %s): " (user-login-name) current-date))))
-
-(defun dmr:insert-current-date ()
-  (interactive)
-  (insert (shell-command-to-string "echo -n $(date +%F)")))
-
 (after! evil
   ;; text-scale-adjust
   (keymap-global-unset "C-x C-0")
@@ -385,6 +376,19 @@
   (remove-hook 'pre-command-hook 'eldoc-pre-command-refresh-echo-area 'local))
 ;; (after! eldoc
 ;;   (remove-hook 'pre-command-hook #'eldoc-pre-command-refresh-echo-area))
+
+
+;;;; misc utils ;;;;
+
+(defun dmr:comment-header-info ()
+  (interactive)
+  (let ((current-date (shell-command-to-string "echo -n $(date +%F)")))
+    (insert (format "(%s, %s): " (user-login-name) current-date))))
+
+(defun dmr:insert-current-date ()
+  (interactive)
+  (insert (shell-command-to-string "echo -n $(date +%F)")))
+
 
 ;;;; elisp ;;;;
 
