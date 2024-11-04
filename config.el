@@ -61,9 +61,6 @@
 ;; for xterms; means "not-flashing cursor"
 (setq visible-cursor nil)
 
-(after! newcomment
-  (setq comment-empty-lines t))
-
 (after! evil-markdown
   (map! :map evil-markdown-mode-map
         :i "M-b" #'backward-word))
@@ -381,6 +378,11 @@
       "M-9" (dmr:corfu-make-complete-idx 4)
       "M-0" (dmr:corfu-make-complete-idx 5)
       "C-\\" #'+corfu/move-to-minibuffer)
+
+;;;; comments ;;;;
+
+(after! newcomment
+  (setq comment-empty-lines t))
 
 ;;;; elisp ;;;;
 
