@@ -55,19 +55,6 @@
 (setq display-line-numbers-type t)
 ;; (setq display-line-numbers-type nil)
 
-(global-set-key (kbd "C-;") 'ace-window)
-(after! ace-window
-        (set-face-attribute 'aw-leading-char-face nil
-                            :foreground "green"
-                            :family "Source Code Pro"
-                            :weight 'bold
-                            :height 2.0)
-        (set-face-attribute 'aw-minibuffer-leading-char-face nil
-                            :foreground "red"
-                            :height 100)
-        (setq aw-scope 'frame)
-        (setq aw-ignore-current t))
-
 ;; dumb parens
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
@@ -180,6 +167,21 @@
 ;; global-map (but lolwut):
 ;;
 ;; M-`   -> tmm-menubar
+
+;;;; ace ;;;;
+
+(global-set-key (kbd "C-;") 'ace-window)
+(after! ace-window
+        (set-face-attribute 'aw-leading-char-face nil
+                            :foreground "green"
+                            :family "Source Code Pro"
+                            :weight 'bold
+                            :height 2.0)
+        (set-face-attribute 'aw-minibuffer-leading-char-face nil
+                            :foreground "red"
+                            :height 100)
+        (setq aw-scope 'frame)
+        (setq aw-ignore-current t))
 
 ;;;; mouse ;;;;
 
