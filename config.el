@@ -62,7 +62,9 @@
     ;; #'text-scale-decrease
     "C--"))
 
-;; free more keys ;;
+;;;; END-FONTY-STUFF ;;;;
+
+;;;; free more keys ;;;;
 
 (keymap-global-unset "C-\\")
 
