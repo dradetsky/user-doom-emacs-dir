@@ -281,7 +281,7 @@
 
 ;;;; LSP ;;;;
 
-(defvar +lsp-auto-start-modes '())
+(defvar +lsp-auto-start-modes nil)
 
 (define-advice lsp! (:around (&rest args))
   ;; NOTE: lsp! isn't actually supposed to be called interactively, but gonna
@@ -326,6 +326,10 @@
 
 ;; NOTE: this allows us to load the file templates code and use it manually.
 (setq +file-templates-inhibit t)
+
+(after! yasnippet
+  (remove-hook 'doom-switch-buffer-hook #'+file-templates-check-h)
+  (remove-hook 'doom-escape-hook #'yas-abort-snippet))
 
 ;;;; browser ;;;;
 
@@ -466,6 +470,7 @@
 (setq org-directory "~/code/elisp/org-dir/")
 
 (after! org
+  (setq org-link-descriptive nil)
   (setq org-startup-indented nil)
   (setq org-list-demote-modify-bullet nil)
   (setq org-hide-leading-stars nil))
