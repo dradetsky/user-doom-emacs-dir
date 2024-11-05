@@ -126,6 +126,9 @@
 ;; for xterms; means "not-flashing cursor"
 (setq visible-cursor nil)
 
+;; This turns on sometimes
+(add-hook 'messages-buffer-mode-hook #'doom-disable-line-numbers-h)
+
 ;; XXX: i'm not sure i defined the fn correctly in autoloads
 ;;
 (global-set-key [remap doom/delete-frame-with-prompt]
