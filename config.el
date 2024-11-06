@@ -136,6 +136,15 @@
 (global-set-key [remap delete-frame]
                 #'dmr/delete-frame-with-prompt-if-last)
 
+;; Otherwise we always hit hl-line-face
+(define-advice face-at-point (:around (&rest args))
+  (if hl-line-mode
+      (unwind-protect
+          (progn (hl-line-mode -1)
+                 (apply args))
+        (hl-line-mode +1))
+    (apply args)))
+
 ;;;; ace ;;;;
 
 (global-set-key (kbd "C-;") 'ace-window)
