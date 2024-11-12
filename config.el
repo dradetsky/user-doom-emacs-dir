@@ -185,6 +185,15 @@
   (interactive)
   (message "LZOLZLZZZZZZ"))
 
+
+;; NOTE: keeping this as an example; its actually solved via early
+;; evil-disable-insert-state-bindings.
+;;
+;; (after! evil
+;;   (map! :map evil-insert-state-map
+;;         (:prefix "C-x"
+;;          :i "C-s" #'save-buffer)))
+
 (after! evil
   (map! :map evil-insert-state-map
         "M-n" #'evil-next-line
