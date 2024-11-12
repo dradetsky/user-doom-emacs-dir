@@ -123,3 +123,7 @@
        :app
        :config
        (default +bindings))
+
+;;;; early init ;;;;
+
+(setq evil-disable-insert-state-bindings t)
