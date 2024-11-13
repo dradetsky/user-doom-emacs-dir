@@ -99,7 +99,8 @@
        (csharp +tree-sitter
                +dotnet
                +lsp)
-       clojure
+       (clojure +tree-sitter
+                +lsp)
        common-lisp
        emacs-lisp        ; drown in parentheses
        go         ; the hipster dialect
