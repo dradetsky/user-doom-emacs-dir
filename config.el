@@ -29,16 +29,31 @@
 ;;
 ;;(setq doom-font "Spleen:style=Regular")
 
-;; XXX: without this, can't run doom-doctor
+(defmacro dmr/choose-font (&rest specs)
+  `(cl-find-if #'doom-font-exists-p (list ,@specs)))
+
+;; XXX: without display-graphic-p, can't run doom-doctor
 ;;
 ;; probably because doom-font-exists-p depends on find-font, which uses the
 ;; frame object and thus probably depends on the window system being running.
 (when (display-graphic-p)
   (setq doom-font
-        (cl-find-if #'doom-font-exists-p
-                    '("Gohu GohuFont:pixelsize=14"
-                      (font-spec :family "Gohu GohuFont" :size 14)
-                      (font-spec :family "gohufont" :size 14)))))
+        (dmr/choose-font
+         (font-spec :foundry "Xos4" :family "Terminus" :size 16)
+         (font-spec :foundry "Misc" :family "Misc Ohsnap" :size 14)
+         (font-spec :foundry "GNU" :family "Unifont" :size 16)
+         (font-spec :foundry "EFont" :family "Fixed" :size 16)
+         (font-spec :family "Gohu GohuFont" :size 14)
+         (font-spec :family "Dina" :size 13)
+         "Gohu GohuFont:pixelsize=14"
+         (font-spec :family "gohufont" :size 14))))
+
+;; (setq bad-fonts `(,(font-spec :foundry "Type Design" :family "Kissinger 2" :size 16)
+;;                   ,(font-spec :foundry "Type Design" :family "Kissinger 2f" :size 16)
+;;                   ,(font-spec :family "ProFont" :size 16)
+;;                   ,(font-spec :family "ProggyCleanTT" :size 18)
+;;                   ,(font-spec :family "ProggyCleanCP.pcf" :size 11)))
+
 
 ;; Keep us from changing text size since it looks awful
 (after! evil

@@ -57,8 +57,8 @@
        dired             ; making dired pretty [functional]
        ;;electric          ; smarter, keyword-based electric-indent
        undo              ; persistent, smarter undo for your inevitable mistakes
-       ;;vc                ; version-control and Emacs, sitting in a tree
-       vc-lite
+       vc                ; version-control and Emacs, sitting in a tree
+       ;;vc-lite
        eww
 
        :term
@@ -111,6 +111,8 @@
        jsonnet
        kotlin            ; a better, slicker Java(Script)
        markdown          ; writing docs for people to ignore
+       (nix +lsp
+            +tree-sitter)
        org               ; organize your plain life in plain text
        (python +lsp          ; beautiful is better than ugly
                +tree-sitter)
