@@ -351,6 +351,11 @@
 (fset 'dmr:yank-head-commit (dmr:yank-fn 'dmr:cmd->str dmr:git-full-commit-cmd))
 (fset 'dmr:yank-short-commit (dmr:yank-fn 'dmr:cmd->str dmr:git-short-commit-cmd))
 
+;; XXX: this is easier than figuring out how magit does this
+(defun dmr/git-pull-no-commit ()
+  (interactive)
+  (shell-commmand "git pull --no-commit --ff-only"))
+
 (map! :leader
       (:prefix-map ("g" . "git")
                    (:prefix-map ("i" . "info")
