@@ -374,7 +374,14 @@
 
 ;;;; browser ;;;;
 
-(setq browse-url-browser-function 'eww-browse-url)
+;; NOTE: still want to use this sometimes, but also want firefox set up
+;;
+;; (setq browse-url-browser-function 'eww-browse-url)
+
+(defvar dmr/firefox-default-profile "privacy")
+(setq browse-url-firefox-arguments (list "-P" dmr/firefox-default-profile))
+(setq browse-url-firefox-new-window-is-tab t)
+(setq browse-url-browser-function 'browse-url-firefox)
 
 ;; globally disable eww images with:
 ;;
