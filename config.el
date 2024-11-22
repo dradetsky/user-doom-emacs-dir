@@ -39,9 +39,10 @@
 (when (display-graphic-p)
   (setq doom-font
         (dmr/choose-font
+         (font-spec :foundry "GNU" :family "Unifont" :size 16)
+         ;; NOTE: hard to distinguish {} from () or []
          (font-spec :foundry "Xos4" :family "Terminus" :size 16)
          (font-spec :foundry "Misc" :family "Misc Ohsnap" :size 14)
-         (font-spec :foundry "GNU" :family "Unifont" :size 16)
          (font-spec :foundry "EFont" :family "Fixed" :size 16)
          (font-spec :foundry "Misc" :family "Misc Tamsyn" :size 20)
          (font-spec :foundry "Misc" :family "Misc Tamsyn" :size 16)
