@@ -188,6 +188,18 @@
         (hl-line-mode +1))
     (apply args)))
 
+;;;; modeline ;;;;
+
+(defun dmr/modeline-vcs-name ()
+  (and vc-mode
+       (if-let ((idx (string-match "[:-]+" vc-mode)))
+           (substring vc-mode (match-end 0))
+         (vc-mode))))
+
+(after! doom-modeline
+  (setq doom-modeline-vcs-max-length 16)
+  (advice-add 'doom-modeline-vcs-name :override #'dmr/modeline-vcs-name))
+
 ;;;; ace ;;;;
 
 (global-set-key (kbd "C-;") 'ace-window)
