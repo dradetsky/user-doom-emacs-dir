@@ -119,10 +119,29 @@
 ;; M-$   -> ispell-word
 ;; M-(   -> insert-parentheses
 ;; M-\   -> delete-horizontal-space
+;; C-q   -> quoted-insert
+;; C-e   -> evil-scroll-line-down
+;; C-y   -> evil-scroll-line-up
 ;;
 ;; global-map (but lolwut):
 ;;
 ;; M-`   -> tmm-menubar
+;;
+;; free evil keys:
+;; g h
+;; g [
+;; g ]
+;; g '
+;;
+;; freeable(?) evil keys
+;;
+;; s -> evil-snipe-s
+;; f -> evil-snipe-f
+;; t -> evil-snipe-t
+;;
+;; less-good free keys
+;;
+;; C-w C-/
 
 ;;;; theme/visuals ;;;;
 
@@ -134,6 +153,12 @@
 ;;      ;:background "#01242b"
 ;;      :background "#01141b"
 ;;      :foreground "#dbd2df"))
+
+;; NOTE: without this, background in terminal is blue
+(custom-theme-set-faces! 'doom-one
+  '(default
+     :background "#000000"))
+
 (setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
