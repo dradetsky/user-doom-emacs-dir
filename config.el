@@ -190,6 +190,65 @@
 
 ;;;; modeline ;;;;
 
+(after! doom-modeline
+  ;; NOTE: show misc-info on LHS
+  (doom-modeline-def-modeline 'dmr/main
+    '(eldoc bar workspace-name window-number modals matches follow buffer-info
+      remote-host buffer-position word-count parrot selection-info misc-info)
+    '(compilation objed-state persp-name battery grip irc mu4e gnus github
+      debug repl lsp minor-modes input-method indent-info buffer-encoding major-mode process vcs check time))
+
+  (add-hook 'doom-modeline-mode-hook
+            (lambda ()
+              (doom-modeline-set-modeline 'dmr/main 'default))))
+
+(use-package! hl-line)
+
+(defface hl-line-alert
+  '((t :inherit hl-line :background "firebrick"))
+  "Dox"
+  :group 'hl-line)
+
+(defun dmr/alert/add-ml-msg (msg)
+  (add-to-list 'global-mode-string msg)
+  (force-mode-line-update))
+
+(defun dmr/alert/del-ml-msg (msg)
+  (setq global-mode-string
+        (delete msg global-mode-string))
+  (force-mode-line-update))
+
+(defun dmr/alert/reset-hl-line (face buf)
+  (with-current-buffer buf
+    (setq hl-line-face face)
+    (hl-line-mode -1)
+    (hl-line-mode +1)))
+
+(defun dmr/alert/begin (msg buf)
+  (progn
+    (dmr/alert/add-ml-msg msg)
+    (dmr/alert/reset-hl-line 'hl-line-alert buf)))
+
+(defun dmr/alert/end (msg buf)
+  (progn
+    (dmr/alert/del-ml-msg msg)
+    (dmr/alert/reset-hl-line 'hl-line buf)))
+
+(defvar alert/init-buffer nil)
+
+(defmacro with-cmd-alert (msg)
+  (let ((text (propertize msg 'face '(doom-modeline-urgent bold))))
+    `(lambda (&rest args)
+       (interactive
+        (lambda (spec)
+          (progn
+            (setq alert/init-buffer (current-buffer))
+            (dmr/alert/begin ,text alert/init-buffer)
+            (advice-eval-interactive-spec spec))))
+       (unwind-protect
+           (apply args)
+         (dmr/alert/end ,text alert/init-buffer)))))
+
 (defun dmr/modeline-vcs-name ()
   (and vc-mode
        (if-let ((idx (string-match "[:-]+" vc-mode)))
@@ -197,8 +256,39 @@
          (vc-mode))))
 
 (after! doom-modeline
-  (setq doom-modeline-vcs-max-length 16)
-  (advice-add 'doom-modeline-vcs-name :override #'dmr/modeline-vcs-name))
+  (setq doom-modeline-vcs-max-length 16))
+
+(use-package! avy)
+
+(defun dmr/avy-goto-char-region (char beg end)
+  (avy-with avy-goto-char
+    (avy-jump
+     (regexp-quote (string char))
+     :beg beg
+     :end end)))
+
+(defun dmr/avy-goto-char-fwd (char)
+  (interactive
+   (list (read-char "char: " t)))
+  (dmr/avy-goto-char-region char
+                            (point)
+                            (window-end)))
+
+(defun dmr/avy-goto-char-rev (char)
+  (interactive
+   (list (read-char "char: " t)))
+  (dmr/avy-goto-char-region char
+                            (window-start)
+                            (point)))
+
+(advice-add 'avy-goto-char :around (with-cmd-alert "====> AVY-GOTO-CHAR"))
+(advice-add 'dmr/avy-goto-char-rev :around (with-cmd-alert "====> AVY-GOTO-CHAR-REV"))
+(advice-add 'dmr/avy-goto-char-fwd :around (with-cmd-alert "====> AVY-GOTO-CHAR-FWD"))
+
+(map! :map evil-motion-state-map
+      "gh" #'avy-goto-char
+      "g[" #'dmr/avy-goto-char-rev
+      "g]" #'dmr/avy-goto-char-fwd)
 
 ;;;; ace ;;;;
 
@@ -214,6 +304,8 @@
                             :height 100)
         (setq aw-scope 'frame)
         (setq aw-ignore-current t))
+
+(advice-add 'ace-window :around (with-cmd-alert "====> ACE-WINDOW"))
 
 ;;;; mouse ;;;;
 
