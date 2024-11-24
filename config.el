@@ -470,14 +470,6 @@
 
 (autoload '+vc--remote-homepage vc-autoload-path)
 
-(defalias 'dmr/vc-remote-homepage '+vc--remote-homepage)
-
-;; (use-package! browse-at-remote)
-;; (defun dmr/vc-remote-homepage ()
-;;   (or (let ((url (browse-at-remote--remote-ref)))
-;;         (plist-get (browse-at-remote--get-url-from-remote (car url)) :url))
-;;       (user-error "Can't find homepage for current project")))
-
 (after! magit
   (setq magit-status-show-hashes-in-headers t))
 
@@ -509,7 +501,7 @@
 (defun dmr/yank-repo-ssh-url ()
   (interactive)
   ;; https://github.com/seagle0128/doom-modeline
-  (if-let ((hu (dmr/vc-remote-homepage)))
+  (if-let ((hu (+vc--remote-homepage)))
       ;; 8 = (length "https://")
       (let ((part (substring hu 8)))
         (aset part 10 (string-to-char ":"))
