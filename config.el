@@ -460,13 +460,11 @@
 
 ;;;; version control ;;;;
 
-(defun dmr/doom-mod-path (group mod)
-  (let ((m (doom-module-get (cons group mod))))
-    (cl-struct-slot-value 'doom-module 'path m)))
-
-(defconst vc-autoload-path
-  (file-name-concat (dmr/doom-mod-path :emacs 'vc)
-                    "autoload/vc.el"))
+;; XXX: Henrik advises that an update will break this unless it's changed to the
+;; following:
+;;
+;; (defconst vc-autoload-path (doom-module-expand-path '(t :emacs vc) "autoload/vc.el"))
+(defconst vc-autoload-path (doom-module-expand-path '(:emacs . vc) "autoload/vc.el"))
 
 (autoload '+vc--remote-homepage vc-autoload-path)
 
