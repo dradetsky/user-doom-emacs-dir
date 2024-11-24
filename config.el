@@ -285,6 +285,12 @@
 (advice-add 'dmr/avy-goto-char-rev :around (with-cmd-alert "====> AVY-GOTO-CHAR-REV"))
 (advice-add 'dmr/avy-goto-char-fwd :around (with-cmd-alert "====> AVY-GOTO-CHAR-FWD"))
 
+;;;; avy ;;;;
+
+;; (defconst ak-def '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(after! avy
+  (setq avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l ?i ?u)))
+
 (map! :map evil-motion-state-map
       "gh" #'avy-goto-char
       "g[" #'dmr/avy-goto-char-rev
