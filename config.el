@@ -460,6 +460,27 @@
 
 ;;;; version control ;;;;
 
+(defun dmr/doom-mod-path (group mod)
+  (let ((m (doom-module-get (cons group mod))))
+    (cl-struct-slot-value 'doom-module 'path m)))
+
+(defconst vc-autoload-path
+  (file-name-concat (dmr/doom-mod-path :emacs 'vc)
+                    "autoload/vc.el"))
+
+(autoload '+vc--remote-homepage vc-autoload-path)
+
+(defalias 'dmr/vc-remote-homepage '+vc--remote-homepage)
+
+;; (use-package! browse-at-remote)
+;; (defun dmr/vc-remote-homepage ()
+;;   (or (let ((url (browse-at-remote--remote-ref)))
+;;         (plist-get (browse-at-remote--get-url-from-remote (car url)) :url))
+;;       (user-error "Can't find homepage for current project")))
+
+(after! magit
+  (setq magit-status-show-hashes-in-headers t))
+
 (map! :leader
       (:prefix-map ("g" . "git")
        (:when (modulep! :tools magit)
@@ -485,11 +506,23 @@
   (interactive)
   (shell-commmand "git pull --no-commit --ff-only"))
 
+(defun dmr/yank-repo-ssh-url ()
+  (interactive)
+  ;; https://github.com/seagle0128/doom-modeline
+  (if-let ((hu (dmr/vc-remote-homepage)))
+      ;; 8 = (length "https://")
+      (let ((part (substring hu 8)))
+        (aset part 10 (string-to-char ":"))
+        (let ((url (concat "git@" part ".git")))
+          (kill-new url)
+          (message "Copied to clipboard: %S" url)))))
+
 (map! :leader
       (:prefix-map ("g" . "git")
                    (:prefix-map ("i" . "info")
                                 ;; XXX: do we want this condition?
                                 (:when (modulep! :tools magit)
+                                  :desc "Yank repo ssh url" "r" #'dmr/yank-repo-ssh-url
                                   :desc "Yank head short commit" "s" #'dmr:yank-short-commit
                                   :desc "Yank head commit" "y" #'dmr:yank-head-commit))))
 ;;;; file templates ;;;;
