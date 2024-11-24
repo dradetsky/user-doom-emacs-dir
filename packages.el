@@ -37,6 +37,9 @@
 ;; XXX: actually I'm not sure this is true
 (package! evil-nerd-commenter :disable t)
 
+;; XXX: temporary hack to upgrade
+(package! doom-modeline :pin "e6ae2ecfea9b5dd26191e131382a7505f7a775b9")
+
 ;;;; v just dev v ;;;;
 
 ;;;; ^ just dev ^ ;;;;
