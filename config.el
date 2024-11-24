@@ -359,9 +359,6 @@
 
 ;;;; Projectile ;;;;
 
-;; (after! projectile
-;;   (setq projectile-non-project-roots '("~")))
-
 (defun dmr:yank-proj-rel-buffer-filename ()
   (interactive)
   (if (projectile-project-root)
@@ -426,9 +423,6 @@
 
 ;; NOTE: dmr:package-get-url depends on a fn in straight, so we load it.
 (use-package! straight)
-
-;; (after! straight
-;;   (setq straight-vc-git-default-protocol 'ssh))
 
 (defun dmr:pkg-url ()
   (interactive)
