@@ -313,6 +313,9 @@
 
 (advice-add 'ace-window :around (with-cmd-alert "====> ACE-WINDOW"))
 
+(map! (:map evil-window-map
+            "M-w" #'ace-swap-window))
+
 ;;;; mouse ;;;;
 
 (use-package! inhibit-mouse
@@ -751,8 +754,21 @@
 
 ;;;; email ;;;;
 
+(defconst dmr/draft-mail-rx
+  (eval
+   (let ((home (getenv "HOME")))
+     `(rx ,home
+          "/docs"
+          (zero-or-more (or alpha
+                            "-"
+                            "/"))
+          ".draftmail.txt"))))
+
 (add-to-list 'auto-mode-alist
              '("/tmp/neomutt-" . mail-mode))
+
+(add-to-list 'auto-mode-alist
+             `(,dmr/draft-mail-rx . mail-mode))
 
 (defun dmr:mail-mode-hook ()
   (setq fill-column 60))
