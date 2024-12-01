@@ -604,6 +604,18 @@
 ;; (setq load-file-rep-suffixes '("" ".gz"))
 ;; (auto-compression-mode 1)
 
+;;;; files generally ;;;;
+
+(defun dmr/chmod-755-file ()
+  (interactive)
+  (let ((cmd (format "chmod 755 %s" (buffer-file-name))))
+    (message cmd)
+    (call-process-shell-command cmd)))
+
+(map! :leader
+      (:prefix-map ("f" . "file")
+                   :desc "Make file executable" "x" #'dmr/chmod-755-file))
+
 ;;;; elisp ;;;;
 
 (defmacro with-curr-defun (act)
@@ -776,6 +788,12 @@
 (add-hook! mail-mode
            #'dmr:mail-mode-hook
            #'doom-disable-line-numbers-h)
+
+;;;; vimrc ;;;;
+
+(after! vimrc-mode
+  (add-to-list 'auto-mode-alist
+               '("\.tridactylrc" . vimrc-mode)))
 
 ;;;; end? ;;;;
 
