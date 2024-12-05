@@ -573,7 +573,7 @@
 (after! newcomment
   (setq comment-empty-lines t))
 
-(map! :g "M-;" 'comment-line)
+(map! :g "M-;" 'comment-dwim)
 
 ;;;; eldoc ;;;;
 
