@@ -573,7 +573,13 @@
 (after! newcomment
   (setq comment-empty-lines t))
 
-(map! :g "M-;" 'comment-dwim)
+(defun dmr/comment (arg)
+  (interactive "*P")
+  (if (use-region-p)
+      (comment-dwim arg)
+    (comment-line arg)))
+
+(map! :g "M-;" 'dmr/comment)
 
 ;;;; eldoc ;;;;
 
