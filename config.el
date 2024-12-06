@@ -420,6 +420,18 @@
 (setq tab-always-indent 'complete)
 ;; (setq tab-first-completion nil)
 
+;;;; doom config ;;;;
+
+(defun dmr/doom/find-user-config ()
+  (interactive)
+  (let ((path (expand-file-name "config.el" doom-user-dir)))
+    (find-file path)))
+
+(map! :leader
+      (:prefix "h"
+               (:prefix "d"
+                :desc "Edit user config" "e" #'dmr/doom/find-user-config)))
+
 ;;;; doom/reload ;;;;
 
 (defun dmr:handle-compile-buffer (_buf status)
