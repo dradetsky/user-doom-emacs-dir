@@ -778,6 +778,14 @@
 ;;;; pkgbuild-mode ;;;;
 
 (after! pkgbuild-mode
+  ;; TODO: confirm below is fixed
+  ;;
+  ;; NOTE: doom's lang/sh module contains
+  ;;
+  ;; (setq-hook! 'sh-mode-hook mode-name "sh")
+  ;;
+  ;; which overwrites this since it's a derived mode
+  ;; (setq-hook! 'pkgbuild-mode-hook mode-name "PKGBUILD")
   (setq pkgbuild-update-sums-on-save nil)
   (setq pkgbuild-template "")
   (setq pkgbuild-initialize nil))
