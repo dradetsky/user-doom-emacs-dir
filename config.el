@@ -481,7 +481,7 @@
   (setq magit-status-show-hashes-in-headers t))
 
 (map! :leader
-      (:prefix-map ("g" . "git")
+      (:prefix "g"
        (:when (modulep! :tools magit)
         :desc "Magit refresh" "z" #'magit-refresh)))
 
@@ -517,13 +517,13 @@
           (message "Copied to clipboard: %S" url)))))
 
 (map! :leader
-      (:prefix-map ("g" . "git")
-                   (:prefix-map ("i" . "info")
-                                ;; XXX: do we want this condition?
-                                (:when (modulep! :tools magit)
-                                  :desc "Yank repo ssh url" "r" #'dmr/yank-repo-ssh-url
-                                  :desc "Yank head short commit" "s" #'dmr:yank-short-commit
-                                  :desc "Yank head commit" "y" #'dmr:yank-head-commit))))
+      (:prefix "g"
+               (:prefix "i"
+                        ;; XXX: do we want this condition?
+                        (:when (modulep! :tools magit)
+                          :desc "Yank repo ssh url" "r" #'dmr/yank-repo-ssh-url
+                          :desc "Yank head short commit" "s" #'dmr:yank-short-commit
+                          :desc "Yank head commit" "y" #'dmr:yank-head-commit))))
 ;;;; file templates ;;;;
 
 ;; NOTE: this allows us to load the file templates code and use it manually.
@@ -619,8 +619,8 @@
     (call-process-shell-command cmd)))
 
 (map! :leader
-      (:prefix-map ("f" . "file")
-                   :desc "Make file executable" "x" #'dmr/chmod-755-file))
+      (:prefix "f"
+       :desc "Make file executable" "x" #'dmr/chmod-755-file))
 
 ;;;; elisp ;;;;
 
@@ -636,7 +636,7 @@
 
 (map! :localleader
       :map (emacs-lisp-mode-map lisp-interaction-mode-map)
-      (:prefix ("e" . "eval")
+      (:prefix "e"
                "p" #'eval-print-defun))
 
 ;; NOTE: doom sets this to fundamental-mode for some reason
