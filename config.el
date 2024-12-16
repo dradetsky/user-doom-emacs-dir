@@ -504,8 +504,9 @@
 (defun dmr:yank-fn (meth &rest args)
   (lambda ()
     (interactive)
-    (kill-new
-     (apply meth args))))
+    (let ((yank-str (apply meth args)))
+      (kill-new yank-str)
+      (message "Yanked: %s" yank-str))))
 
 (defconst dmr:git-full-commit-cmd "git rev-parse HEAD")
 (defconst dmr:git-short-commit-cmd "git rev-parse --short HEAD")
@@ -530,7 +531,7 @@
 
 (map! :leader
       (:prefix "g"
-               (:prefix "i"
+               (:prefix ("i" . "info")
                         ;; XXX: do we want this condition?
                         (:when (modulep! :tools magit)
                           :desc "Yank repo ssh url" "r" #'dmr/yank-repo-ssh-url
@@ -787,7 +788,7 @@
   ;; which overwrites this since it's a derived mode
   ;; (setq-hook! 'pkgbuild-mode-hook mode-name "PKGBUILD")
   (setq pkgbuild-update-sums-on-save nil)
-  (setq pkgbuild-template "")
+  (setq pkgbuild-template-default-license-identifier "WTFPL")
   (setq pkgbuild-initialize nil))
 
 ;;;; email ;;;;

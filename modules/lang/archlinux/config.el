@@ -2,5 +2,4 @@
 
 (after! pkgbuild-mode
   (when +file-templates-inhibit
-    (setq pkgbuild-template "")
     (setq pkgbuild-initialize nil)))
