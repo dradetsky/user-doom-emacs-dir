@@ -822,6 +822,25 @@
   (add-to-list 'auto-mode-alist
                '("\.tridactylrc" . vimrc-mode)))
 
+;;;; shell-script ;;;;
+
+;;;###autoload
+(define-derived-mode zsh-mode sh-mode "Shell-script"
+  (sh-set-shell "zsh"))
+
+(defconst dmr/zsh-path
+  (eval
+   (let ((home (getenv "HOME")))
+     `(rx ,home
+          "/.local/share/zsh/"
+          (one-or-more alpha)
+          "/"
+          (one-or-more (or "-"
+                           alpha))))))
+
+(add-to-list 'auto-mode-alist
+             `(,dmr/zsh-path . zsh-mode))
+
 ;;;; end? ;;;;
 
 ;;;; ^ just dev ^ ;;;;
