@@ -373,7 +373,8 @@
   (if (projectile-project-root)
       (if-let (filename (or buffer-file-name (bound-and-true-p list-buffers-directory)))
           (let ((relname (substring filename (length (projectile-project-root)))))
-            (message (kill-new relname)))
+            (message "Yanked: %s" relname)
+            (kill-new relname))
         (error "Couldn't find filename in current buffer"))
     (error "Not in project")))
 
