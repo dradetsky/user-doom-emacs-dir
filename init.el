@@ -24,8 +24,8 @@
        indent-guides     ; highlighted indent columns
        ;;ligatures         ; ligatures and symbols to make your code pretty again
        ;;minimap           ; show a map of the code on the side
-       (modeline +light)          ; snazzy, Atom-inspired modeline, plus API
-       ;; modeline          ; snazzy, Atom-inspired modeline, plus API
+       ;;(modeline +light)          ; snazzy, Atom-inspired modeline, plus API
+       modeline          ; snazzy, Atom-inspired modeline, plus API
        ;;nav-flash         ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
@@ -87,7 +87,8 @@
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
-       terraform         ; infrastructure as code
+       ;; terraform         ; infrastructure as code
+       (terraform +lsp)         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        tree-sitter
        ;;upload            ; map local to remote projects via ssh/ftp
@@ -103,7 +104,9 @@
                 +lsp)
        common-lisp
        emacs-lisp        ; drown in parentheses
-       go         ; the hipster dialect
+       ;; fsharp
+       (go +tree-sitter
+           +lsp)         ; the hipster dialect
        java              ; the poster child for carpal tunnel syndrome
        (javascript +tree-sitter ; all(hope(abandon(ye(who(enter(here))))))
                    +lsp)
@@ -118,7 +121,10 @@
                +tree-sitter)
        (racket +xp)
        ;;rest              ; Emacs as a REST client
-       (scheme +chez)
+       ;;
+       (rust +tree-sitter
+             +lsp)
+       ;(scheme +chez)
        (sh +fish)               ; she sells {ba,z,fi}sh shells on the C xor
        yaml              ; JSON, but readable
 
