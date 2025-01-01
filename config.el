@@ -383,6 +383,23 @@
        :desc "toggle project r/o" "E" #'projectile-toggle-project-read-only
        :desc "yank project file name" "y" #'dmr:yank-proj-rel-buffer-filename))
 
+;; WIP
+;;
+;; ;;;; Consult ;;;;
+;;
+;; ;; "/tmp/neomutt-flap-1000-27177-14780582089400771766"
+;; (defconst dmr/tmp-mail-rx
+;;   (rx "/tmp/neomutt-"
+;;       (one-or-more alpha)
+;;       "-"
+;;       (one-or-more digit)
+;;       "-"
+;;       (one-or-more digit)))
+;;
+;; (after! consult
+;;   (add-to-list 'consult-buffer-filter
+;;                dmr/tmp-mail-rx))
+
 ;;;; Ivy ;;;;
 ;;
 ;; NOTE: fun fact: we don't use Ivy anymore (moved to corfu/vertico). Should
