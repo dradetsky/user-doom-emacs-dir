@@ -458,6 +458,21 @@
 
 (setq doom-handle-compile-buffer-fn #'dmr:handle-compile-buffer)
 
+;; HACK VERSION
+
+(remove-hook 'doom-init-ui-hook #'+popup-mode)
+
+(defun dmr/doom/reload ()
+  (interactive)
+  (+popup-mode +1)
+  (doom/reload)
+  (+popup-mode -1))
+
+(map! :leader
+      (:prefix "h"
+               (:prefix "r"
+                :desc "Reload user config" "r" #'dmr/doom/reload)))
+
 ;;;; package management ;;;;
 
 ;; NOTE: dmr:package-get-url depends on a fn in straight, so we load it.
